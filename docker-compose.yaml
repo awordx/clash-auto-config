@@ -1,0 +1,11 @@
+services:
+  config-updater:
+    container_name: config_update
+    image: crpi-zutrieltt9z6q9p7.cn-shanghai.personal.cr.aliyuncs.com/awordx/clash_update:latest
+    restart: unless-stopped
+    environment:
+      - SUB_URL=          #机场订阅链接
+      - UPDATE_INTERVAL=43200  #机场更新延迟时间，单位为秒
+    volumes:
+      - ./data:/config # 机场更新的配置文件名字为config.yaml，存放在/config目录下
+
